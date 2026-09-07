@@ -89,7 +89,3 @@ history.
 - Automatic promotions triggered by a capacity increase or a completion are not
   undoable enrollment actions, so they clear the undo/redo history.
 - Passwords are stored and compared as plain text, by design for this project.
-- Almost no comments: the code is meant to read on its own. A one-liner appears
-  only where a reader would otherwise stumble (merge-sort stability, the DFS
-  colour scheme, why a DAO write goes temp-file-then-rename, a few return-value
-  contracts, EOF handling).

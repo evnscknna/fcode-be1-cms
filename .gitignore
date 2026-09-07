@@ -1,0 +1,18 @@
+# Build output
+/build/
+/dist/
+*.class
+
+# NetBeans local state
+/nbproject/private/
+
+# Runtime logs and transient files (data/ itself IS committed as the example set)
+/error.log
+*.tmp
+
+# Editor / OS noise
+/.idea/
+*.iml
+/.vscode/
+.DS_Store
+Thumbs.db

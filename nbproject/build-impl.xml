@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*** GENERATED FROM project.xml - DO NOT EDIT  ***
+***         EDIT ../build.xml INSTEAD         ***
+
+This is a compact, hand-written stand-in for the file that NetBeans normally
+generates for a "Java Application" (J2SE Ant) project. It provides the same
+public targets (clean / compile / jar / run / javadoc / test / debug) and reads
+the same nbproject/project.properties, so `ant` works from the command line.
+
+When this project is first opened in NetBeans, the IDE detects that the
+checksums in genfiles.properties do not match and offers to regenerate this
+file with its full canonical version. Accepting that is safe and recommended.
+-->
+<project name="CourseManagementSystem-impl" default="default" basedir="..">
+
+    <property file="nbproject/private/private.properties"/>
+    <property file="nbproject/project.properties"/>
+
+    <property name="platform.java" value="${java.home}/bin/java"/>
+    <property name="have.tests" value="false"/>
+
+    <target name="default" depends="jar" description="Build whole project."/>
+
+    <!-- ============================ init ================================ -->
+    <target name="-init">
+        <mkdir dir="${build.classes.dir}"/>
+        <mkdir dir="${build.test.classes.dir}"/>
+        <mkdir dir="${build.test.results.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <condition property="main.class.available">
+            <and>
+                <isset property="main.class"/>
+                <not><equals arg1="${main.class}" arg2="" trim="true"/></not>
+            </and>
+        </condition>
+        <available file="${test.src.dir}" type="dir" property="tests.exist"/>
+    </target>
+
+    <!-- ========================== compile ============================== -->
+    <target name="-pre-compile"/>
+    <target name="-post-compile"/>
+
+    <target name="compile" depends="-init,-pre-compile,-do-compile,-post-compile"
+            description="Compile project."/>
+
+    <target name="-do-compile" depends="-init">
+        <javac srcdir="${src.dir}"
+               destdir="${build.classes.dir}"
+               source="${javac.source}"
+               target="${javac.target}"
+               encoding="${source.encoding}"
+               includeantruntime="false"
+               debug="true">
+            <compilerarg line="${javac.compilerargs}"/>
+            <classpath>
+                <pathelement path="${javac.classpath}"/>
+            </classpath>
+        </javac>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${src.dir}" excludes="${build.classes.excludes}"/>
+        </copy>
+    </target>
+
+    <!-- ============================ jar =============================== -->
+    <target name="-pre-jar"/>
+    <target name="-post-jar"/>
+
+    <target name="jar" depends="compile,-pre-jar,-do-jar,-post-jar"
+            description="Build JAR."/>
+
+    <target name="-do-jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.jar}" basedir="${build.classes.dir}" compress="${jar.compress}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+        <echo>To run this application from the command line without Ant, try:</echo>
+        <echo>${platform.java} -jar "${basedir}/${dist.jar}"</echo>
+    </target>
+
+    <!-- ============================ run ============================== -->
+    <target name="run" depends="compile" description="Run project.">
+        <java classname="${main.class}" fork="true" failonerror="true" dir="${basedir}">
+            <classpath>
+                <pathelement path="${run.classpath}"/>
+            </classpath>
+            <jvmarg line="${run.jvmargs}"/>
+        </java>
+    </target>
+
+    <target name="run-single" depends="compile">
+        <fail unless="run.class">Must set -Drun.class=your.Class</fail>
+        <java classname="${run.class}" fork="true" failonerror="true" dir="${basedir}">
+            <classpath>
+                <pathelement path="${run.classpath}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- =========================== debug ============================= -->
+    <target name="debug" depends="compile" description="Debug project (listens on port 5005).">
+        <java classname="${main.class}" fork="true" failonerror="true" dir="${basedir}">
+            <classpath>
+                <pathelement path="${run.classpath}"/>
+            </classpath>
+            <jvmarg value="-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005"/>
+        </java>
+    </target>
+
+    <!-- =========================== javadoc ========================== -->
+    <target name="javadoc" depends="-init" description="Build Javadoc.">
+        <mkdir dir="${dist.javadoc.dir}"/>
+        <javadoc destdir="${dist.javadoc.dir}"
+                 source="${javac.source}"
+                 encoding="${source.encoding}"
+                 charset="UTF-8"
+                 failonerror="false"
+                 useexternalfile="true">
+            <fileset dir="${src.dir}" includes="**/*.java"/>
+        </javadoc>
+    </target>
+
+    <!-- =========================== clean =========================== -->
+    <target name="clean" description="Clean build products.">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+</project>

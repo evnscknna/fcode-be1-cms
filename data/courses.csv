@@ -1,0 +1,7 @@
+id,code,title,credits,capacity,semester,instructorId,schedule,prerequisites
+1,CS101,Introduction to Programming,3,30,2026-FALL,1,MON 09:00-10:30;WED 09:00-10:30,
+2,CS102,Data Structures,3,3,2026-FALL,3,TUE 09:00-10:30;THU 09:00-10:30,CS101
+3,CS201,Algorithms,3,2,2026-FALL,1,MON 09:00-10:30;FRI 09:00-10:30,CS102
+4,MATH101,Calculus I,4,4,2026-FALL,2,MON 11:00-12:30;WED 11:00-12:30,
+5,MATH201,Linear Algebra,3,35,2026-FALL,2,TUE 11:00-12:30;THU 11:00-12:30,MATH101
+6,CS110,Discrete Mathematics,3,30,2025-FALL,2,MON 13:00-14:30;WED 13:00-14:30,

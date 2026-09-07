@@ -1,0 +1,4 @@
+id,code,fullName,email,department
+1,INS01,Alan Turing,alan.turing@univ.edu,Computer Science
+2,INS02,Ada Lovelace,ada.lovelace@univ.edu,Mathematics
+3,INS03,Grace Hopper,grace.hopper@univ.edu,Computer Science
